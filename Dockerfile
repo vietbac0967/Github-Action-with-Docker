@@ -1,4 +1,5 @@
-FROM eclipse-temurin:17-jdk-alpine
-EXPOSE 8080
-ADD target/Github-Action-Docker-0.0.1-SNAPSHOT.jar Github-Action-Docker-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","/Github-Action-Docker-0.0.1-SNAPSHOT.jar"]
+FROM openjdk:17
+ARG JAR_FILE=target/*.jar
+RUN mkdir /opt/test-service
+COPY ${JAR_FILE} /opt/test-service/app.jar
+ENTRYPOINT ["java","-jar","/opt/test-service/app.jar"]

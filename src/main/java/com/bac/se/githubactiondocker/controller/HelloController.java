@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @RestController
 @RequestMapping
 public class HelloController {
+    // comment for code
     @GetMapping("/hello")
     public String hello(){
         return "hello world " + LocalDate.now();
